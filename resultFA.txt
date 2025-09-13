@@ -1,0 +1,35 @@
+=============== step number = 1 ==========================
+An <  >
+APn <  >
+Bn = < 1 >
+BPn = < ONE >
+Cn = < 2, ... infinity >
+CPn = < [L] >
+=============== step number = 2 ==========================
+An < 1 >
+APn < ONE >
+Bn = < 2 >
+BPn = < P >
+Cn = < 3, ... infinity >
+CPn = < [L, M] >
+=============== step number = 3 ==========================
+An < 1,2 >
+APn < ONE,P >
+Bn = < 3 >
+BPn = < P >
+Cn = < 4, ... infinity >
+CPn = < [M, L, M, L, M, M] >
+=============== step number = 4 ==========================
+An < 1,2,3 >
+APn < ONE,P,P >
+Bn = < 4 >
+BPn = < M >
+Cn = < 5, ... infinity >
+CPn = < [L, M, L, M, M, M] >
+=============== step number = 5 ==========================
+An < 1,2,3,4 >
+APn < ONE,P,P,M >
+Bn = < 5 >
+BPn = < P >
+Cn = < 6, ... infinity >
+CPn = < [M, L, M, M, M, L, M, L, M, M, M, L, M, L, M, M, M, L, M, M, M, M, M, L, M, L, M, M, M, M] >
