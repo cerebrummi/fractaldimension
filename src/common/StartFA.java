@@ -7,50 +7,42 @@ import java.io.IOException;
 import java.io.OutputStreamWriter;
 import java.io.UnsupportedEncodingException;
 import java.nio.charset.StandardCharsets;
-import java.util.StringJoiner;
 
 public class StartFA
 {
-   final static int NUMBER_OF_STEPS = 19;
+   final static int NUMBER_OF_STEPS = 17;
 
    public static void main(String[] args)
    {
       SFA sfa = new SFA();
 
-      try
+      for (int i = 0; i < NUMBER_OF_STEPS; i++)
       {
-         File file = new File("resultFA_19only.txt");
-
-         FileOutputStream stream = new FileOutputStream(file);
-         OutputStreamWriter writer = new OutputStreamWriter(stream,
-               StandardCharsets.UTF_8);
-         StringJoiner joiner = new StringJoiner("\n");
-
-         for (int i = 0; i < NUMBER_OF_STEPS; i++)
+         sfa.step();
+         try
          {
-            sfa.step();
-            if(i == 19)
-            {
-               joiner.add("=============== step number = " + sfa.getStepNumber() +" ==========================");
-               joiner.merge(sfa.toStringJoiner());
-            }
+            File file = new File("src/fa/FA_" + sfa.getStepNumber() + ".txt");
+            
+            FileOutputStream stream = new FileOutputStream(file);
+            OutputStreamWriter writer = new OutputStreamWriter(stream,
+                  StandardCharsets.UTF_8);
+            writer.write(sfa.toPlainString());
+            writer.flush();
+            writer.close();
          }
+         catch (UnsupportedEncodingException e)
+         {
+            e.printStackTrace();
+         }
+         catch (FileNotFoundException e)
+         {
+            e.printStackTrace();
+         }
+         catch (IOException e)
+         {
+            e.printStackTrace();
+         }
+      }
 
-         writer.write(joiner.toString());
-         writer.flush();
-         writer.close();
-      }
-      catch (UnsupportedEncodingException e)
-      {
-         e.printStackTrace();
-      }
-      catch (FileNotFoundException e)
-      {
-         e.printStackTrace();
-      }
-      catch (IOException e)
-      {
-         e.printStackTrace();
-      }
    }
 }
