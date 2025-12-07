@@ -42,14 +42,13 @@ public class CPn implements Walkset
       {
          copy.add(element);
       }
-      int index = 1;
-      for (int i = 0; i < copy.size(); i++)
+
+      for (int i = n-1; i < copy.size(); i+=n)
       {
-         if (index % n == 0 && list.get(i).equals(Symbol.L))
+         if (list.get(i).equals(Symbol.L))
          {
             list.set(i, Symbol.M);
          }
-         index++;
       }
    }
 
